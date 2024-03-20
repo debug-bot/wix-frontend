@@ -1,155 +1,115 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import CategoryGrid from "../components/CategoryGrid";
-import styles from "../styles/Home.module.css";
-import stylesi from "../styles/index.module.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useCart } from "../context/CartContext";
-import { useLanguage } from "../context/LanguageContext";
-import NextCarousel from "../components/Carousel";
-import About from "../components/About";
-import CollectionGrid from "../components/CollectionGrid";
-import SecondaryNavbar from "../components/SecondaryNavbar";
-import CollectionCarousel from "../components/CollectionCarousel";
+import TempNavbar from '../components/TempNavbar';
+import TempFooter from '../components/TempFooter';
+import Templates from '../components/Templates';
+import Qrcode from '../components/Qrcode';
 
-import { Row, Col } from "react-bootstrap";
 
-import enzo_men_image from "../public/images/Enzo Men/Enzo_Men_artbfq_c_scale,w_600.jpg";
-import enzo_women_image from "../public/images/Enzo Women.jpg";
-import Offers from "../components/Offers";
-import AboutUs from "../components/AboutUs";
-import NextNavbar from "../components/NextNavbar";
-
-import stylesT from '../styles/CategoryID.module.css'
-
-import navbarImage from "../public/images/Navbar/LUX4A.jpg";
-import Banner from "../components/Banner";
-import Footer from "../components/Footer";
-
-const domain = process.env.NEXT_PUBLIC_API_DOMAIN_NAME;
-
-const language_dictionary = {
-  slogan: {
-    en:
-      "The linen and cotton clothes that offer comfort, luxury, and modernity",
-    es: "La ropa de lino y algodón que ofrece confort, lujo y modernidad",
-  },
-};
-
-export default function Home() {
-  const { cart } = useCart();
-  const { language } = useLanguage();
-
-  const [categories, setCategories] = useState(null);
-  const [collections, setCollections] = useState(null);
-
-  useEffect(async () => {
-    await getCategories(setCategories);
-    await getCollections(setCollections);
-  }, []);
-
-  const languageTranslate = (phrase) => {
-    return language_dictionary[phrase][language];
-  };
+export default function Index() {
+ 
+ 
 
   return (
-    <div className={stylesi.container}>
-      <Head>
-        <title>Market Master</title>
-        <meta
-          name="description"
-          content="Market Master is an e-commerce that sells high quality linen and cotton clothing, and that specializes in Caribbean guayaberas and guayamisas"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Market Master" />
-        <meta
-          property="og:description"
-          content="Market Master is an e-commerce that sells high quality linen and cotton clothing, and that specializes in Caribbean guayaberas and guayamisas"
-        />
-        <meta property="og:url" content="https://habanerasdelino.com/" />
-        <meta property="og:type" content="website" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-      </Head>
-
-      <NextNavbar navy={false}/>
-
-      <SecondaryNavbar navbarShow={false} navy={false} linkBackShow={false} />
-
-
-      <main className={styles.main}>
-
-      
-      <div className={stylesi.background_div} style={{ backgroundImage: `url('/images/Navbar/LUX8A.jpg')` }}>
-        <div className={stylesi.title_div}>
-        <div className={stylesi.about_title}>
-          <Banner />
-          
+  <>
+  <TempNavbar />
+<section class="hero-section mt-4">
+    <div class="container">
+        <div class="row align-items-center justify-content-md-between">
+            <div class="col-md-6">
+                <h1 class="display-3 fw-bold">Build Your Dream Website Easily</h1>
+                <p class="lead my-4">
+                    Create stunning websites with our easy-to-use, drag-and-drop website builder. No coding required!
+                </p>
+                <a href="/" class="btn btn-light btn-lg">Get Started</a>
+            </div>
+            <div class="col-md-6">
+                <img src="https://www.hostaway.net.au/wp-content/uploads/2017/03/web-design.png" class="img-fluid float-end" alt="Website Builder Image" />
+            </div>
         </div>
+    </div>
+</section>
+<section id="features" class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <h2 class="mb-4">Amazing Features</h2>
+                <p class="lead mb-5">Discover the incredible functionalities that make our website builder stand out.</p>
+            </div>
         </div>
+
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fa-solid fa-laptop mb-3" style={{ fontSize: "2rem"}}></i>
+                        <h5 class="card-title">Drag & Drop Editor</h5>
+                        <p class="card-text">Effortlessly create stunning websites with our intuitive drag and drop interface.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fa-solid fa-palette mb-3" style={{ fontSize: "2rem"}}></i>
+                        <h5 class="card-title">Customizable Templates</h5>
+                        <p class="card-text">Choose from a vast collection of professionally designed templates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fa-solid fa-gear mb-3" style={{ fontSize: "2rem"}}></i>
+                        <h5 class="card-title">Advanced SEO Tools</h5>
+                        <p class="card-text">Optimize your site with advanced SEO tools for higher search engine rankings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="templates" class="py-3 bg-light">
+    <Templates />
+    </section>
+<section class="container my-5" id="faqse">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
+                    What is Market Master?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <p>Market Master is a user-friendly online platform that allows you to create, design, and publish your own website without needing any coding skills. With our intuitive drag-and-drop interface, you can easily customize your website to suit your personal or business needs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How much does it cost to use Market Master?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <p>We offer various pricing plans to fit your needs, including a free plan with basic features. Our premium plans offer additional features like custom domain hosting, advanced SEO tools, and e-commerce capabilities. Please visit our pricing page for detailed information on each plan.</p>
+                </div>
+            </div>
         </div>
         
-
-        <div className={stylesi.small_br} />
-
-        <div className={stylesi.collection_carousel_wrapper_div}>
-
-
-        <CollectionCarousel collection={"Luxury"} />
-        <CollectionCarousel collection={"Etnik"} />
-        <CollectionCarousel collection={"Cittadino"} />
-
-        <CollectionCarousel collection={"Romance"} />
-        <CollectionCarousel collection={"Navy"} />
-
-        </div>
-        <Offers />
-
-        <AboutUs />
-
-        <Footer />
-
-      </main>
     </div>
+</section>
+<section id="qrcode">
+
+<Qrcode />
+
+</section>
+<TempFooter />
+
+  </>
+
   );
 }
-
-const getCategories = (setCategories) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  const categories_url = domain + "store/categories/";
-  axios
-    .get(categories_url, config)
-    .then(async (res) => {
-      const result = await res.data;
-      setCategories(result);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const getCollections = (setCollections) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  const collections_url = domain + "store/collections/";
-  axios
-    .get(collections_url, config)
-    .then(async (res) => {
-      const result = await res.data;
-      setCollections(result);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};

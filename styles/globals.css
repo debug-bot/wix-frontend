@@ -65,3 +65,21 @@ a {
 .react-multiple-carousel__arrow--right{
   right: 0px !important;
 }
+
+
+ .template-card {
+    transition: all 0.3s ease;
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transform: scale(1.02);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card-img-top {
+        height: auto;
+    }
+    .card-title, .card-text {
+        font-size: smaller;
+    }
+}

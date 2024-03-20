@@ -7,9 +7,9 @@ const domain = process.env.NEXT_PUBLIC_API_DOMAIN_NAME;
 
 const LanguageContext = createContext();
 
-const getCurrentLanguage = async () => {
+const getCurrentLanguage = () => {
   try {
-    const lan = await window.localStorage.getItem("lan");
+    const lan = "en"
     if (lan === null || lan == undefined) {
       return "en";
     } else return lan;

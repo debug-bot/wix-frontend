@@ -18,8 +18,7 @@ export default function Qrcode() {
   return (
     <>
 
-    <TempNavbar />
-   <div className="container" style={{marginBottom: "200px"}}>
+   <div className="container" style={{marginBottom: "100px"}}>
     <h1 className="text-center my-5">QR Code Generator</h1>
   <div className="row justify-content-center">
     <div className="col-md-6">
@@ -57,7 +56,6 @@ export default function Qrcode() {
     </div>
   </div>
 </div>
-<TempFooter />
 </>
   );
 }

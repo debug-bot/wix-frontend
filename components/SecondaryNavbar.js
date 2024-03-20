@@ -116,47 +116,6 @@ const SecondaryNavbar = ({ navbarShow = true, linkBackShow = true, navy= true })
         )}
 
             <NavDropdown
-              title={language == "en" ? "WOMEN" : "MUJERES"}
-              className={styles.navbar_navdropdown}
-              menuVariant="dark"
-              active={true}
-            >
-              <NavDropdown.Item href="#">
-                {language == "en" ? "Soon in Stock" : "Pronto en Stock"}
-              </NavDropdown.Item>
-
-              {/* <NavDropdown
-                title="Collections"
-                className={styles.navbar_navdropdown}
-                menuVariant="dark"
-                drop="end"
-                active={true}
-              >
-                <NavDropdown.Item href="/collection-title/Romance">Romance</NavDropdown.Item>
-
-                <NavDropdown.Item>Navy</NavDropdown.Item>
-
-                <Dropdown.Divider />
-
-                <NavDropdown.Item href="/collection-title/Zen">Zen</NavDropdown.Item>
-
-                <NavDropdown.Item>Fuchsia</NavDropdown.Item>
-
-                <NavDropdown.Item>Valladolid</NavDropdown.Item>
-              </NavDropdown>
-
-              <NavDropdown.Item href="/category-title/enzo-women/Vestidos">Dresses</NavDropdown.Item>
-
-              <NavDropdown.Item href="/category-title/enzo-women/Blusas">Blouses/Shirts</NavDropdown.Item>
-
-              <NavDropdown.Item href="/category-title/enzo-women/Pantalones">Pants</NavDropdown.Item>
-
-              <NavDropdown.Item>Accessories</NavDropdown.Item>
-
-              <NavDropdown.Item href="/enzo-women">All</NavDropdown.Item> */}
-            </NavDropdown>
-
-            <NavDropdown
               title={language == "en" ? "MEN" : "HOMBRES"}
               className={styles.navbar_navdropdown}
               menuVariant="dark"
@@ -176,41 +135,11 @@ const SecondaryNavbar = ({ navbarShow = true, linkBackShow = true, navy= true })
                 <NavDropdown.Item href="/collection-title/Etnik">
                   Etnik
                 </NavDropdown.Item>
-
-                <NavDropdown.Item href="/collection-title/Cittadino">
-                  Cittadino
-                </NavDropdown.Item>
-
-                <Dropdown.Divider />
-
-                <NavDropdown.Item href="/collection-title/Cancun">
-                  Cancun
-                </NavDropdown.Item>
-
-                <NavDropdown.Item href="/collection-title/Valladolid">
-                  Valladolid
-                </NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown.Item href="/category-title/enzo-men/Guayaberas">
-                Guayaberas
-              </NavDropdown.Item>
+             
 
-              <NavDropdown.Item href="/category-title/enzo-men/Guayamisas">
-                Guayamisas
-              </NavDropdown.Item>
-
-              <NavDropdown.Item href="/category-title/enzo-men/Camisas">
-                {language == "en" ? "Shirts" : "Camisas"}
-              </NavDropdown.Item>
-
-              <NavDropdown.Item href="/category-title/enzo-men/Pantalones">
-                {language == "en" ? "Pants" : "Pantalones"}
-              </NavDropdown.Item>
-
-              <NavDropdown.Item>
-                {language == "en" ? "Accessories" : "Accesorios"}
-              </NavDropdown.Item>
+              
 
               <NavDropdown.Item href="/enzo-men">
                 {language == "en" ? "All" : "Todo"}
@@ -223,14 +152,7 @@ const SecondaryNavbar = ({ navbarShow = true, linkBackShow = true, navy= true })
           {/* </Nav> */}
 
           {/* <Nav className={`mx-auto order-0  ${styles.navbar_contact_nav}`}> */}
-            <Nav.Link
-              href="/#offers"
-              className={`${styles.navbar_link} ${styles.navbar_link_modal}`}
-            >
-              {language == "en"
-                ? "WHOLESALER DICOUNTS"
-                : "DESCUENTOS MOYORISTAS"}
-            </Nav.Link>
+            
 
             <Nav.Link
               href="/#about_store"

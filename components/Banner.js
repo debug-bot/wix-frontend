@@ -2,18 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const Banner = () => {
+const Banner = ({templateId, userId}) => {
 
   const [section, setSection] = useState({});
 
   useEffect(() => {
-    const templateId = localStorage.getItem('templateId') || "1";
-
-    console.log(templateId);
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/store/website/${templateId}/`);
+        const response = await axios.get(`http://127.0.0.1:8000/store/website/${userId}/${templateId}/`);
         setSection(response.data);
       }
       catch (error) {

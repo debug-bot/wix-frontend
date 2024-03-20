@@ -5,9 +5,11 @@ import 'grapesjs/dist/css/grapes.min.css';
 import gjsPresetWebpage from "grapesjs-preset-webpage";
 import grapesjsBlocksBasic from "grapesjs-blocks-basic";
 import axios from 'axios';
+const swal = require("sweetalert2");
 
 
-const GrapesJSEditor = ({templateId}) => {
+
+const GrapesJSEditor = ({templateId, userId}) => {
     const [section, setSection] = useState({});
 
     const editorRef = useRef(null);
@@ -15,9 +17,10 @@ const GrapesJSEditor = ({templateId}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/store/website/${templateId}/`);
+                const response = await axios.get(`http://127.0.0.1:8000/store/website/${userId}/${templateId}/`);
                 // setsection section 1
                 setSection(response.data);
+                console.log(response.data);
             } catch (error) {
                 console.error('There was an error!', error);
             }
@@ -81,9 +84,22 @@ editor.Panels.addButton('options', {
 });
 
 
+// add back button
+editor.Panels.addButton('options', {
+    id: 'back-btn',
+    className: 'fa fa-arrow-left',
+    command: 'go-back',
+    attributes: { title: 'Go back' }
+});
+
+editor.Commands.add('go-back', {
+    run: function(editor, sender) {
+        sender && sender.set('active', 0); // deactivate the button
+        window.history.back();
+    }
+});
 
 
-// Log the HTML content to the console
 
 editor.Commands.add('save-db', {
     run: function(editor, sender) {
@@ -98,7 +114,8 @@ editor.Commands.add('save-db', {
         const putData = async (e) => {
             try {
                 if (section1 && section2 && section3 && section4) {
-                    const response = await axios.put(`http://127.0.0.1:8000/store/website/${templateId}/`,{
+                    const response = await axios.put(`http://127.0.0.1:8000/store/website/${userId}/${templateId}/`,{
+                        user: userId,
                         section1: section1.toHTML(),
                         section2: section2.toHTML(),
                         section3: section3.toHTML(),
@@ -107,9 +124,20 @@ editor.Commands.add('save-db', {
                     });
 
                     console.log(response.data);
-                    alert('Template updated successfully.');
+                    swal.fire({
+                        title: 'Success!',
+                        text: 'Template updated successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    });
+
                 } else {
-                    alert('Refresh the page and try again.');
+                    swal.fire({
+                        title: 'Error!',
+                        text: 'Please add all sections to the template!',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
                 }
 
                 
