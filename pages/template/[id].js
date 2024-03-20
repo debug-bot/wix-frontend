@@ -27,11 +27,17 @@ const language_dictionary = {
 };
 
 export default function Home() {
+  
   const { cart } = useCart();
   const { language } = useLanguage();
+  const { user } = useContext(AuthContext);
+
 
   const [categories, setCategories] = useState(null);
   const [collections, setCollections] = useState(null);
+  const [isRouterReady, setIsRouterReady] = useState(false);
+  const [section, setSection] = useState({});
+
 
   useEffect(async () => {
     await getCategories(setCategories);
@@ -43,14 +49,6 @@ export default function Home() {
   };
 
   const router = useRouter();
-  const { id } = router.query;
-
-  const { user } = useContext(AuthContext);
-     
-
-  const userId = user ? user.user_id : 1;
-
-  const [section, setSection] = useState({});
 
   useEffect(() => {
 
@@ -65,6 +63,30 @@ export default function Home() {
     }
     fetchData();
   }, []);
+
+
+  useEffect(() => {
+        if (router.isReady) {
+            setIsRouterReady(true);
+        }
+    }, [router.isReady])
+
+
+  const userId = user ? user.user_id : 1;
+
+  if (!isRouterReady) {
+        return <div>Loading...</div>;
+  }
+
+  const { id } = router.query;
+
+  if (!id) {
+        return <div>Error: Template ID is missing.</div>;
+    }
+
+
+
+  
 
   return (
     <div className={stylesi.container}>

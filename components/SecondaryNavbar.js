@@ -155,14 +155,14 @@ const SecondaryNavbar = ({ navbarShow = true, linkBackShow = true, navy= true })
             
 
             <Nav.Link
-              href="/#about_store"
+              href="#about_store"
               className={`${styles.navbar_link} ${styles.navbar_link_modal}`}
             >
               {language == "en" ? "ABOUT US" : "SOBRE NOSOTROS"}
             </Nav.Link>
 
             <Nav.Link
-              href="/#about_shipping"
+              href="#about_shipping"
               className={`${styles.navbar_link} ${styles.navbar_link_modal}`}
             >
               {language == "en" ? "SHIPPING" : "ENVIO"}

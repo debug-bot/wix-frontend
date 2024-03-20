@@ -19,7 +19,7 @@ export default function Index() {
                 <p class="lead my-4">
                     Create stunning websites with our easy-to-use, drag-and-drop website builder. No coding required!
                 </p>
-                <a href="/" class="btn btn-light btn-lg">Get Started</a>
+                <a href="/templates" class="btn btn-light btn-lg">Get Started</a>
             </div>
             <div class="col-md-6">
                 <img src="https://www.hostaway.net.au/wp-content/uploads/2017/03/web-design.png" class="img-fluid float-end" alt="Website Builder Image" />
