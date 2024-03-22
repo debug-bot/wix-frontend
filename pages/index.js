@@ -70,7 +70,7 @@ export default function Index() {
     </div>
 </section>
 <section id="templates" class="py-3 bg-light">
-    <Templates />
+    <Templates loggedIn={false}/>
     </section>
 <section class="container my-5" id="faqse">
     <h2 class="text-center mb-4">Frequently Asked Questions</h2>
@@ -101,11 +101,6 @@ export default function Index() {
         </div>
         
     </div>
-</section>
-<section id="qrcode">
-
-<Qrcode />
-
 </section>
 <TempFooter />
 

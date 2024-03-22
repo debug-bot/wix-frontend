@@ -123,19 +123,7 @@ function Registerpage() {
 															Register
 														</button>
 													</div>
-													<a
-														className="small text-muted"
-														href="#!"
-													>
-														<Link
-															href="#"
-															style={{
-																color: "#393f81",
-															}}
-														>
-															Forgot password?
-														</Link>
-													</a>
+									
 													<p
 														className="pb-lg-2"
 														style={{

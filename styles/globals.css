@@ -75,7 +75,59 @@ a {
     }
 }
 
+#loom-companion-mv3 {
+    display: none !important;
+}
+
+
+
+
+#side_nav{
+ background: #000;
+ min-width: 300px;
+ max-width: 300px;
+ transition: all 0.3s;
+}
+.content{
+   min-height: 100vh;
+   width: 100%;
+}
+hr.h-color{
+  background: #eee;
+}
+
+.sidebar li.active{
+   background: #eee;
+   border-radius: 8px;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover {
+ color: #000;
+}
+.sidebar li a{
+ color: #fff;
+}
+
+.dashboard-content {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.dashboard-content::-webkit-scrollbar {
+  width: 10px;
+}
+
 @media only screen and (max-width: 768px) {
+  #side_nav{
+   margin-left: -300px;
+   position: absolute;
+   min-height: 100vh;
+   z-index: 1;
+
+ }
+ #side_nav.active{
+   margin-left: 0;
+  }
     .card-img-top {
         height: auto;
     }

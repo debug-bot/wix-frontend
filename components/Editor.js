@@ -17,7 +17,7 @@ const GrapesJSEditor = ({templateId, userId}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/store/website/${userId}/${templateId}/`);
+                const response = await axios.get(`http://127.0.0.1:8000/store/editor-template/${userId}/${templateId}/`);
                 // setsection section 1
                 setSection(response.data);
                 console.log(response.data);
@@ -57,6 +57,10 @@ const GrapesJSEditor = ({templateId, userId}) => {
                 ],
 			},
 
+            
+
+            
+
             // Add more configurations here
         });
 
@@ -73,6 +77,9 @@ const GrapesJSEditor = ({templateId, userId}) => {
     `,
     category: 'Basic',
 });
+
+console.log(editor.getProjectData());
+
 
 
 
@@ -101,26 +108,22 @@ editor.Commands.add('go-back', {
 
 
 
+
 editor.Commands.add('save-db', {
     run: function(editor, sender) {
         sender && sender.set('active', 0); // deactivate the button
 
-        const section1 = editor.DomComponents.getWrapper().find('.t-section1')[0];
-        const section2 = editor.DomComponents.getWrapper().find('.t-section2')[0];
-        const section3 = editor.DomComponents.getWrapper().find('.t-section3')[0];
-        const section4 = editor.DomComponents.getWrapper().find('.t-section4')[0];
+        const htmlSection = editor.DomComponents.getWrapper().find('.html-section')[0];
+        const jsSection = editor.DomComponents.getWrapper().find('.js-section')[0];
 
         // axios put request
         const putData = async (e) => {
             try {
-                if (section1 && section2 && section3 && section4) {
-                    const response = await axios.put(`http://127.0.0.1:8000/store/website/${userId}/${templateId}/`,{
-                        user: userId,
-                        section1: section1.toHTML(),
-                        section2: section2.toHTML(),
-                        section3: section3.toHTML(),
-                        section4: section4.toHTML(),
-                        section8: editor.getCss(),
+                if (htmlSection) {
+                    const response = await axios.put(`http://127.0.0.1:8000/store/editor-template/${userId}/${templateId}/`,{
+                        html_content: htmlSection.toHTML(),
+                        js_content: jsSection.toHTML(),
+                        css_cotent: editor.getCss(),
                     });
 
                     console.log(response.data);
@@ -156,11 +159,19 @@ editor.Commands.add('save-db', {
         // For example, sending the HTML/CSS to a server
     }
 });
-editor.addStyle(`${section.section8}`);
-editor.addComponents(`${section.section1}`);
-editor.addComponents(`${section.section2}`);
-editor.addComponents(`${section.section3}`);
-editor.addComponents(`${section.section4}`);
+editor.addStyle(`${section.css_cotent}`);
+editor.addComponents(`
+<div class=".html-section">
+${section.html_content}
+</div>
+`);
+editor.addComponents(`
+<div class=".js-section">
+<script>
+${section.js_content}
+</script>
+</div>
+`);
 
         
 

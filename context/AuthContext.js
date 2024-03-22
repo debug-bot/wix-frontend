@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 			setAuthTokens(data.token);
 			setUser(decode(data.token.access));
 			localStorage.setItem("authTokens", JSON.stringify(data.token));
-			history.push("/");
+			history.push("/mysite");
 
 			swal.fire({
 				title: "Login Successful",

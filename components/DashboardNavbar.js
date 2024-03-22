@@ -3,7 +3,7 @@ import Link from 'next/link';
 import useAxios from "../utils/useAxios";
 import AuthContext from "../context/AuthContext";
 
-const TempNavbar = () => {
+const DashboardNavbar = () => {
     const [profile, setProfile] = useState("");
     const { user, logoutUser } = useContext(AuthContext);
     const api = useAxios();
@@ -30,23 +30,21 @@ const TempNavbar = () => {
                 <div className="container">
                     <a className="navbar-brand mt-1" href="/">
                         <img className="img-fluid" width="50px" style={{ cursor: 'pointer' }} src="./logos/mylogo.png" alt="..." />
-                        <span className="ms-1">Market Master</span>
+                        <span className="ms-1">Market Master Dashboard</span>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li className="nav-item">
-                                      <a className="nav-link" aria-current="page" href="#features">Features</a>
+                              <li className="nav-item">
+                                      <a className="nav-link" aria-current="page" href="#mysite">My Site</a>
                               </li>
-                                
-                               <li className="nav-item">
+
+                              <li className="nav-item">
                                       <a className="nav-link" aria-current="page" href="#templates">Templates</a>
                               </li>
-                              <li className="nav-item">
-                                      <a className="nav-link" aria-current="page" href="#faqse">FAQs</a>
-                              </li>
+                                
                             
                             {user ? (
                               <>
@@ -81,4 +79,4 @@ const TempNavbar = () => {
     );
 };
 
-export default TempNavbar;
+export default DashboardNavbar;
