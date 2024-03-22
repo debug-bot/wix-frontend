@@ -22,7 +22,7 @@ import Offers from "../components/Offers";
 import AboutUs from "../components/AboutUs";
 import NextNavbar from "../components/NextNavbar";
 
-import stylesT from '../styles/CategoryID.module.css'
+import stylesT from "../styles/CategoryID.module.css";
 
 import navbarImage from "../public/images/Navbar/LUX4A.jpg";
 import Banner from "../components/Banner";
@@ -32,8 +32,7 @@ const domain = process.env.NEXT_PUBLIC_API_DOMAIN_NAME;
 
 const language_dictionary = {
   slogan: {
-    en:
-      "The linen and cotton clothes that offer comfort, luxury, and modernity",
+    en: "The linen and cotton clothes that offer comfort, luxury, and modernity",
     es: "La ropa de lino y algodón que ofrece confort, lujo y modernidad",
   },
 };
@@ -74,39 +73,33 @@ export default function Home() {
         <meta charSet="utf-8" />
       </Head>
 
-      <NextNavbar navy={false}/>
+      <NextNavbar navy={false} />
 
       <SecondaryNavbar navbarShow={false} navy={false} linkBackShow={false} />
 
-
       <main className={styles.main}>
-
-      
-      <div className={stylesi.background_div} style={{ backgroundImage: `url('/images/Navbar/LUX8A.jpg')` }}>
-        <div className={stylesi.title_div}>
-        <div className={stylesi.about_title}>
-          <Banner />
-          
+        <div
+          className={stylesi.background_div}
+          style={{ backgroundImage: `url('/images/Navbar/LUX8A.jpg')` }}
+        >
+          <div className={stylesi.title_div}>
+            <div className={stylesi.about_title}>
+              <Banner />
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        
 
         <div className={stylesi.small_br} />
 
         <div className={stylesi.collection_carousel_wrapper_div}>
-
-
-        <CollectionCarousel collection={"Luxury"} />
-        <CollectionCarousel collection={"Etnik"} />
-
+          <CollectionCarousel collection={"Luxury"} />
+          <CollectionCarousel collection={"Etnik"} />
         </div>
         <Offers />
 
         <AboutUs />
 
         <Footer />
-
       </main>
     </div>
   );

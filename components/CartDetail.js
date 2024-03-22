@@ -1,24 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../styles/CartDetail.module.css";
-import {
-  Nav,
-  Navbar,
-  NavDropdown,
-  Container,
-  Form,
-  FormControl,
-  FormGroup,
-  InputGroup,
-  Button,
-  Col,
-  Row,
-  ControlLabel,
-  Card,
-} from "react-bootstrap";
+import { Container, Form, Button, Col, Row, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import router from "next/router";
 import { useCart } from "../context/CartContext";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -92,7 +75,13 @@ const CartDetail = () => {
                       <p>{prod.product.title}</p>
 			  </Row> */}
                     <Row className={styles.row_product_vars}>
-                      <Col xs={6} sm={6} md={6} lg={6} className={styles.col_prod}>
+                      <Col
+                        xs={6}
+                        sm={6}
+                        md={6}
+                        lg={6}
+                        className={styles.col_prod}
+                      >
                         <p>
                           {" "}
                           {language == "en" ? "Size:" : "Talla:"}{" "}
@@ -123,12 +112,14 @@ const CartDetail = () => {
                         ) : (
                           <div />
                         )}
- 
                       </Col>
-                      <Col xs={6} sm={6} md={6} lg={6} className={styles.col_prod}>
-
-                      
-
+                      <Col
+                        xs={6}
+                        sm={6}
+                        md={6}
+                        lg={6}
+                        className={styles.col_prod}
+                      >
                         <p>
                           {language == "en" ? "Amount" : "Cantidad"}:{" "}
                           {prod.cant}
@@ -157,9 +148,8 @@ const CartDetail = () => {
                           {prod.product.code}
                         </p>
                         <p>
-                          {language == "en" ? "Price" : "Precio"}: ${parseFloat(
-                            prod.price
-                          ).toFixed(2)}
+                          {language == "en" ? "Price" : "Precio"}: $
+                          {parseFloat(prod.price).toFixed(2)}
                         </p>
                       </Col>
                     </Row>
@@ -168,9 +158,7 @@ const CartDetail = () => {
                       <Col xs={12} sm={12} md={6} lg={6}>
                         <Link href={`/custom_product/${prod.id}/`}>
                           <Button
-                            className={`${styles.button_main} ${
-                              styles.edit_button
-                            }`}
+                            className={`${styles.button_main} ${styles.edit_button}`}
                           >
                             {language == "en" ? "Edit" : "Editar"}
                           </Button>
@@ -178,9 +166,7 @@ const CartDetail = () => {
                       </Col>
                       <Col xs={12} sm={12} md={6} lg={6}>
                         <Button
-                          className={`${styles.button_main} ${
-                            styles.delete_button
-                          }`}
+                          className={`${styles.button_main} ${styles.delete_button}`}
                           onClick={(e) => onDeleteClickHandler(e, index)}
                         >
                           {language == "en" ? "Delete" : "Eliminar"}
@@ -199,9 +185,8 @@ const CartDetail = () => {
             <>
               <Row className={styles.row_final_price}>
                 <p>
-                  {language == "en" ? "Total Price" : "Precio Total"}: ${parseFloat(
-                    cart.cost
-                  ).toFixed(2)}
+                  {language == "en" ? "Total Price" : "Precio Total"}: $
+                  {parseFloat(cart.cost).toFixed(2)}
                 </p>
               </Row>
               <Row className={styles.coupon_div}>
@@ -293,18 +278,14 @@ const CartDetail = () => {
                   <p>
                     {language == "en"
                       ? "Price after coupon"
-                      : "Precio con cupón"}: ${cart.cost -
-                      cart.cost * coupon.discount}
+                      : "Precio con cupón"}
+                    : ${cart.cost - cart.cost * coupon.discount}
                   </p>
                 ) : (
                   <p>
                     {language == "en"
-                      ? `The coupon is active but it will only apply when there are more than ${
-                          coupon.how_many_items
-                        } units (products) in the cart.`
-                      : `El cupón está activado pero necesita tener en el carrito al menos ${
-                          coupon.how_many_items
-                        } unidades (productos)`}
+                      ? `The coupon is active but it will only apply when there are more than ${coupon.how_many_items} units (products) in the cart.`
+                      : `El cupón está activado pero necesita tener en el carrito al menos ${coupon.how_many_items} unidades (productos)`}
                   </p>
                 )}
               </Row>
@@ -320,17 +301,14 @@ const CartDetail = () => {
                   <p>
                     {language == "en"
                       ? "Price after coupon"
-                      : "Precio con cupón"}: ${cart.cost - coupon.discount}
+                      : "Precio con cupón"}
+                    : ${cart.cost - coupon.discount}
                   </p>
                 ) : (
                   <p>
                     {language == "en"
-                      ? `The coupon is active but it will only apply when there are more than ${
-                          coupon.how_many_items
-                        } units (products) in the cart.`
-                      : `El cupón está activado pero necesita tener en el carrito al menos ${
-                          coupon.how_many_items
-                        } unidades (productos)`}
+                      ? `The coupon is active but it will only apply when there are more than ${coupon.how_many_items} units (products) in the cart.`
+                      : `El cupón está activado pero necesita tener en el carrito al menos ${coupon.how_many_items} unidades (productos)`}
                   </p>
                 )}
               </Row>
@@ -351,9 +329,7 @@ const CartDetail = () => {
             </Col>
             <Col xs={12} sm={12} md={6} lg={6}>
               <Button
-                className={`${styles.button_main} ${
-                  styles.delete_order_button
-                }`}
+                className={`${styles.button_main} ${styles.delete_order_button}`}
                 onClick={(e) => onDeleteCartHandler(e)}
               >
                 {language == "en" ? "Delete Cart" : "Eliminar Carrito"}

@@ -1,55 +1,40 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import {useEffect, useState} from 'react'
-import axios from 'axios'
-import { useCart } from '../context/CartContext'
-import OrderResume from '../components/OrderResume'
-import ShippingInfo from '../components/ShippingInfo'
-import {
-  Col,
-  Row,
-} from "react-bootstrap";
-import SecondaryNavbar from '../components/SecondaryNavbar'
-import NextNavbar from '../components/NextNavbar'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { useCart } from "../context/CartContext";
+import ShippingInfo from "../components/ShippingInfo";
+import SecondaryNavbar from "../components/SecondaryNavbar";
+import NextNavbar from "../components/NextNavbar";
 
 export default function OrderCheckout() {
+  const { cart } = useCart();
 
-
-  const {cart} = useCart()
-
-  return(
+  return (
     <div className={styles.container}>
       <Head>
-          <title>Resume of Order and Purchase - Market Master</title>
-          <meta
-            name="description"
-            content="Resume of order and purchase of linen and cotton clothes at Market Master"
-          />
-          <meta property="og:title" content="Resume of Order and Purchase" />
-          <meta
-            property="og:description"
-            content="Resume of order and purchase of linen and cotton clothes at Market Master"
-          />
-          <meta property="og:url" content="https://habanerasdelino/order" />
-          <meta property="og:type" content="website" />
-          <link rel="icon" href="/favicon.ico" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Resume of Order and Purchase - Market Master</title>
+        <meta
+          name="description"
+          content="Resume of order and purchase of linen and cotton clothes at Market Master"
+        />
+        <meta property="og:title" content="Resume of Order and Purchase" />
+        <meta
+          property="og:description"
+          content="Resume of order and purchase of linen and cotton clothes at Market Master"
+        />
+        <meta property="og:url" content="https://habanerasdelino/order" />
+        <meta property="og:type" content="website" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        </Head>
+      </Head>
 
-        <NextNavbar navy={true}/>
-      <SecondaryNavbar navbarShow={false} navy={true}/>
+      <NextNavbar navy={true} />
+      <SecondaryNavbar navbarShow={false} navy={true} />
 
       <main className={styles.main}>
-
-      <ShippingInfo />
-      
+        <ShippingInfo />
       </main>
-      <footer className={styles.footer}>
-        
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
-  )
+  );
 }
-

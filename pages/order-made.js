@@ -1,8 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { useCart } from "../context/CartContext";
 import OrderSuccessfullyMade from "../components/OrderSuccessfullyMade";
 import SecondaryNavbar from "../components/SecondaryNavbar";
@@ -34,8 +31,8 @@ export default function OderMade() {
         <meta charSet="utf-8" />
       </Head>
 
-      <NextNavbar navy={true}/>
-      <SecondaryNavbar navbarShow={false} navy={true}/>
+      <NextNavbar navy={true} />
+      <SecondaryNavbar navbarShow={false} navy={true} />
 
       <main className={styles.main}>
         <OrderSuccessfullyMade />

@@ -12,32 +12,27 @@ import AboutUs from "../../components/AboutUs";
 import NextNavbar from "../../components/NextNavbar";
 import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
-import { useRouter } from 'next/router';
-import AuthContext from '../../context/AuthContext';
-
+import { useRouter } from "next/router";
+import AuthContext from "../../context/AuthContext";
 
 const domain = process.env.NEXT_PUBLIC_API_DOMAIN_NAME;
 
 const language_dictionary = {
   slogan: {
-    en:
-      "The linen and cotton clothes that offer comfort, luxury, and modernity",
+    en: "The linen and cotton clothes that offer comfort, luxury, and modernity",
     es: "La ropa de lino y algodón que ofrece confort, lujo y modernidad",
   },
 };
 
 export default function Home() {
-  
   const { cart } = useCart();
   const { language } = useLanguage();
   const { user } = useContext(AuthContext);
-
 
   const [categories, setCategories] = useState(null);
   const [collections, setCollections] = useState(null);
   const [isRouterReady, setIsRouterReady] = useState(false);
   const [section, setSection] = useState({});
-
 
   useEffect(async () => {
     await getCategories(setCategories);
@@ -51,42 +46,36 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/store/website/${userId}/${id}/`);
+        const response = await axios.get(
+          `http://127.0.0.1:8000/store/website/${userId}/${id}/`
+        );
         setSection(response.data);
+      } catch (error) {
+        console.error("There was an error!", error);
       }
-      catch (error) {
-        console.error('There was an error!', error);
-      }
-    }
+    };
     fetchData();
   }, []);
 
-
   useEffect(() => {
-        if (router.isReady) {
-            setIsRouterReady(true);
-        }
-    }, [router.isReady])
-
+    if (router.isReady) {
+      setIsRouterReady(true);
+    }
+  }, [router.isReady]);
 
   const userId = user ? user.user_id : 1;
 
   if (!isRouterReady) {
-        return <div>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   const { id } = router.query;
 
   if (!id) {
-        return <div>Error: Template ID is missing.</div>;
-    }
-
-
-
-  
+    return <div>Error: Template ID is missing.</div>;
+  }
 
   return (
     <div className={stylesi.container}>
@@ -106,44 +95,36 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <style>
-            {section.section8}
-        </style>
+        <style>{section.section8}</style>
       </Head>
 
-      <NextNavbar navy={false}/>
+      <NextNavbar navy={false} />
 
       <SecondaryNavbar navbarShow={false} navy={false} linkBackShow={false} />
 
-
       <main className={styles.main}>
-
-      
-      <div className={stylesi.background_div} style={{ backgroundImage: `url('/images/Navbar/LUX8A.jpg')` }}>
-        <div className={stylesi.title_div}>
-        <div className={stylesi.about_title}>
-          <Banner templateId={id} userId={userId}/>
-          
+        <div
+          className={stylesi.background_div}
+          style={{ backgroundImage: `url('/images/Navbar/LUX8A.jpg')` }}
+        >
+          <div className={stylesi.title_div}>
+            <div className={stylesi.about_title}>
+              <Banner templateId={id} userId={userId} />
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        
 
         <div className={stylesi.small_br} />
 
         <div className={stylesi.collection_carousel_wrapper_div}>
-
-
-        <CollectionCarousel collection={"Luxury"} />
-        <CollectionCarousel collection={"Etnik"} />
-
+          <CollectionCarousel collection={"Luxury"} />
+          <CollectionCarousel collection={"Etnik"} />
         </div>
-        <Offers templateId={id} userId={userId}/>
+        <Offers templateId={id} userId={userId} />
 
-        <AboutUs templateId={id} userId={userId}/>
+        <AboutUs templateId={id} userId={userId} />
 
-        <Footer templateId={id} userId={userId}/>
-
+        <Footer templateId={id} userId={userId} />
       </main>
     </div>
   );

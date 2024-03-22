@@ -1,24 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../styles/CategoryGrid.module.css";
 import {
-  Nav,
-  Navbar,
-  NavDropdown,
   Container,
-  Form,
-  FormControl,
-  FormGroup,
-  InputGroup,
   Button,
-  Col,
   Row,
-  ControlLabel,
   Card,
 } from "react-bootstrap";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import router from "next/router";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
