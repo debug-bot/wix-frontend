@@ -1,137 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: white !important;
-  }
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background-color: white !important;
+}
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 @font-face {
-  font-family: "Corinthia";
-  src: url("/fonts/Corinthia/Corinthia-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+	font-family: "Corinthia";
+	src: url("/fonts/Corinthia/Corinthia-Regular.ttf");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Corinthia";
-  src: url("/fonts/Corinthia/Corinthia-Bold.ttf");
-  font-style: medium;
-  font-weight: 500;
-  font-display: swap;
-}
-
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format('truetype');;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+	font-family: "Corinthia";
+	src: url("/fonts/Corinthia/Corinthia-Bold.ttf");
+	font-style: medium;
+	font-weight: 500;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Light.ttf") format('truetype');;
-  font-style: lighter;
-  font-weight: 300;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
 }
-
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format('truetype');
-  font-style: medium;
-  font-weight: 700;
-  font-display: swap;
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+	font-style: lighter;
+	font-weight: 300;
+	font-display: swap;
 }
 
-.react-multiple-carousel__arrow--left{
-  left: 0px !important;
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+	font-style: medium;
+	font-weight: 700;
+	font-display: swap;
 }
 
-.react-multiple-carousel__arrow--right{
-  right: 0px !important;
+.react-multiple-carousel__arrow--left {
+	left: 0px !important;
 }
 
+.react-multiple-carousel__arrow--right {
+	right: 0px !important;
+}
 
- .template-card {
-    transition: all 0.3s ease;
-    &:hover {
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transform: scale(1.02);
-    }
+.template-card {
+	transition: all 0.3s ease;
+	&:hover {
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transform: scale(1.02);
+	}
 }
 
 #loom-companion-mv3 {
-    display: none !important;
+	display: none !important;
 }
 
-
-
-
-#side_nav{
- background: #000;
- min-width: 300px;
- max-width: 300px;
- transition: all 0.3s;
+#side_nav {
+	background: #000;
+	min-width: 300px;
+	max-width: 300px;
+	transition: all 0.3s;
 }
-.content{
-   min-height: 100vh;
-   width: 100%;
+.content {
+	min-height: 100vh;
+	width: 100%;
 }
-hr.h-color{
-  background: #eee;
+hr.h-color {
+	background: #eee;
 }
 
-.sidebar li.active{
-   background: #eee;
-   border-radius: 8px;
+.sidebar li.active {
+	background: #eee;
+	border-radius: 8px;
 }
 
-.sidebar li.active a, .sidebar li.active a:hover {
- color: #000;
+.sidebar li.active a,
+.sidebar li.active a:hover {
+	color: #000;
 }
-.sidebar li a{
- color: #fff;
+.sidebar li a {
+	color: #fff;
 }
 
 .dashboard-content {
-  height: 100vh;
-  overflow-y: auto;
+	height: 100vh;
+	overflow-y: auto;
 }
 
 .dashboard-content::-webkit-scrollbar {
-  width: 10px;
+	width: 10px;
 }
 
 @media only screen and (max-width: 768px) {
-  #side_nav{
-   margin-left: -300px;
-   position: absolute;
-   min-height: 100vh;
-   z-index: 1;
-
- }
- #side_nav.active{
-   margin-left: 0;
-  }
-    .card-img-top {
-        height: auto;
-    }
-    .card-title, .card-text {
-        font-size: smaller;
-    }
+	#side_nav {
+		margin-left: -300px;
+		position: absolute;
+		min-height: 100vh;
+		z-index: 1;
+	}
+	#side_nav.active {
+		margin-left: 0;
+	}
+	.card-img-top {
+		height: auto;
+	}
+	.card-title,
+	.card-text {
+		font-size: smaller;
+	}
 }

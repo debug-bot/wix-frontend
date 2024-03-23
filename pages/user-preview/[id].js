@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
-import AuthContext from "../../context/AuthContext";
+import { useRouter } from 'next/router';
+import AuthContext from '../../context/AuthContext';
+import Script from 'next/script';
+
 
 export default function Preview() {
   const { user } = useContext(AuthContext);
@@ -17,12 +19,10 @@ export default function Preview() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/store/editor-template/${userId}/${id}/`
-        );
+        const response = await axios.get(`http://127.0.0.1:8000/store/editor-template/${userId}/${id}/`);
         setSection(response.data);
       } catch (error) {
-        console.error("There was an error!", error);
+        console.error('There was an error!', error);
       } finally {
         setLoading(false);
       }
@@ -56,10 +56,13 @@ export default function Preview() {
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <style>{section.css_cotent}</style>
+        <style>
+            {section.css_cotent}
+        </style>      
       </Head>
 
       <div dangerouslySetInnerHTML={{ __html: section.html_content }} />
+
     </div>
   );
 }

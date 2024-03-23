@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 const swal = require("sweetalert2");
 
 const AuthContext = createContext();
@@ -13,15 +13,15 @@ export const AuthProvider = ({ children }) => {
 
 	const [loading, setLoading] = useState(true);
 
-	const history = useRouter()
+	const history = useRouter();
 
-	const decode = (token) =>{
-    try {
-        return JSON.parse(window.atob(token.split(".")[1]));
-    } catch (e) {
-        console.warn("Error decoding token");
-    }
-}
+	const decode = (token) => {
+		try {
+			return JSON.parse(window.atob(token.split(".")[1]));
+		} catch (e) {
+			console.warn("Error decoding token");
+		}
+	};
 
 	const loginUser = async (email, password) => {
 		const response = await fetch("http://127.0.0.1:8000/account/login/", {
@@ -193,7 +193,7 @@ export const AuthProvider = ({ children }) => {
 		setAuthTokens(null);
 		setUser(null);
 		localStorage.removeItem("authTokens");
-		history.push("/login");
+		history.push("/");
 
 		swal.fire({
 			title: "YOu have been logged out...",
@@ -219,13 +219,13 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-        const tokens = localStorage.getItem("authTokens");
-        if (tokens) {
-            const parsedTokens = JSON.parse(tokens);
-            setAuthTokens(parsedTokens);
-            setUser(decode(parsedTokens));
-        }
-    }, []);
+		const tokens = localStorage.getItem("authTokens");
+		if (tokens) {
+			const parsedTokens = JSON.parse(tokens);
+			setAuthTokens(parsedTokens);
+			setUser(decode(parsedTokens));
+		}
+	}, []);
 
 	useEffect(() => {
 		if (authTokens) {
@@ -233,8 +233,6 @@ export const AuthProvider = ({ children }) => {
 		}
 		setLoading(false);
 	}, [authTokens, loading]);
-
-	
 
 	return (
 		<AuthContext.Provider value={contextData}>
