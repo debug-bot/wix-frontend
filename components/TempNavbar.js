@@ -73,7 +73,7 @@ const TempNavbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ms-3">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#features">
                   Features
