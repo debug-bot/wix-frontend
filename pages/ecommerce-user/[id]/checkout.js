@@ -8,7 +8,7 @@ import AlertMessage from "../../../components/ecommerce/Alert";
 import { ORDER_CREATE_RESET } from "../../../constants/ordersConstants";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Header from "../../../components/ecommerce/Header";
+import Header from "../../../components/ecommerce/UserHeader";
 import Hero from "../../../components/ecommerce/UserHero";
 import Footer from "../../../components/ecommerce/UserFooter";
 
@@ -144,7 +144,7 @@ function Checkout() {
 															className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
 														>
 															<Link
-																href={`/ecommerce/${id}/product-details/${product.slug}`}
+																href={`/ecommerce-user/${id}/product-details/${product.slug}`}
 															>
 																<Avatar
 																	img={
@@ -156,7 +156,7 @@ function Checkout() {
 														</th>
 														<td className="px-6 py-4 text-black text-center">
 															<Link
-																href={`/ecommerce/${id}/product-details/${product.slug}`}
+																href={`/ecommerce-user/${id}/product-details/${product.slug}`}
 															>
 																<span className="underline">
 																	{
@@ -268,7 +268,7 @@ function Checkout() {
 					</div>
 				</div>
 			</div>
-			<Footer/>
+			<Footer />
 		</>
 	);
 }

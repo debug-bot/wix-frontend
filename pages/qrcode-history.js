@@ -1,9 +1,9 @@
 import { useState } from "react";
-import MySite from "../components/MySite";
 import DashboardInfo from "../components/DashboardInfo";
 import Sidebar from "../components/Sidebar";
+import QrcodeHistory from "../components/QrcodeHistory";
 
-export default function DasboardMySites() {
+export default function DasboardQrcodeHistory() {
 	const [isSidebarActive, setIsSidebarActive] = useState(false);
 
 	const toggleSidebar = () => {
@@ -20,7 +20,7 @@ export default function DasboardMySites() {
 				<div class="content">
 					<DashboardInfo toggleSidebar={toggleSidebar} />
 					<div class="dashboard-content px-3 pb-3">
-						<MySite />
+						<QrcodeHistory />
 					</div>
 				</div>
 			</div>

@@ -8,9 +8,9 @@ import Loader from "../../../../components/ecommerce/Loader";
 import AlertMessage from "../../../../components/ecommerce/Alert";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Header from "../../../../components/ecommerce/Header";
-import Hero from "../../../components/ecommerce/UserHero";
-import Footer from "../../../components/ecommerce/UserFooter";
+import Header from "../../../../components/ecommerce/UserHeader";
+import Hero from "../../../../components/ecommerce/UserHero";
+import Footer from "../../../../components/ecommerce/UserFooter";
 
 function ProductDetails() {
 	const [ploading, setpLoading] = useState(true);
@@ -36,7 +36,7 @@ function ProductDetails() {
 	const addToCart = () => {
 		// console.log(qty)
 
-		router.push(`/ecommerce/${id}/cart/${slug}?qty=${qty}`);
+		router.push(`/ecommerce-user/${id}/cart/${slug}?qty=${qty}`);
 	};
 
 	if (ploading) {
@@ -53,7 +53,7 @@ function ProductDetails() {
 			<div>
 				<div className="bg-white mb-5">
 					<div className="mt-3 md:ml-10 container">
-						<Link href={`/ecommerce/${id}`}>
+						<Link href={`/ecommerce-user/${id}`}>
 							<button className="rounded-md border border-transparent bg-cyan-800 px-5 py-2 text-base font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
 								<i className="fa-solid fa-arrow-left mr-1"></i>{" "}
 								Back

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import MySite from "../components/MySite";
 import DashboardInfo from "../components/DashboardInfo";
 import Sidebar from "../components/Sidebar";
+import Templates from "../components/Templates";
+import Qrcode from "../components/Qrcode";
 
-export default function DasboardMySites() {
+export default function DasboardQrcode() {
 	const [isSidebarActive, setIsSidebarActive] = useState(false);
 
 	const toggleSidebar = () => {
@@ -20,7 +21,7 @@ export default function DasboardMySites() {
 				<div class="content">
 					<DashboardInfo toggleSidebar={toggleSidebar} />
 					<div class="dashboard-content px-3 pb-3">
-						<MySite />
+						<Qrcode/>
 					</div>
 				</div>
 			</div>

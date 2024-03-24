@@ -99,6 +99,13 @@ hr.h-color {
 	border-radius: 8px;
 }
 
+.sidebar li a:hover {
+	background: #eee;
+	border-radius: 8px;
+	color: #000;
+	transition: all 0.2s ease;
+}
+
 .sidebar li.active a,
 .sidebar li.active a:hover {
 	color: #000;
@@ -108,12 +115,8 @@ hr.h-color {
 }
 
 .dashboard-content {
-	height: 100vh;
+	height: 90vh;
 	overflow-y: auto;
-}
-
-.dashboard-content::-webkit-scrollbar {
-	width: 10px;
 }
 
 @media only screen and (max-width: 768px) {

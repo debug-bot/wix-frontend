@@ -5,11 +5,11 @@ import { Button } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../actions/cartAction";
 import AlertMessage from "../../../../components/ecommerce/Alert";
-import TableRow from "../../../../components/ecommerce/TableRow";
+import TableRow from "../../../../components/ecommerce/UserTableRow";
 import { useRouter } from "next/router";
-import Header from "../../../../components/ecommerce/Header";
-import Hero from "../../../components/ecommerce/UserHero";
-import Footer from "../../../components/ecommerce/UserFooter";
+import Header from "../../../../components/ecommerce/UserHeader";
+import Hero from "../../../../components/ecommerce/UserHero";
+import Footer from "../../../../components/ecommerce/UserFooter";
 
 function Cart() {
 	const router = useRouter();
@@ -29,7 +29,7 @@ function Cart() {
 	}, [dispatch, slug, qty]);
 
 	const checkoutHandler = () => {
-		router.push(`/ecommerce/${id}/shipping`);
+		router.push(`/ecommerce-user/${id}/shipping`);
 	};
 
 	return (
@@ -47,7 +47,7 @@ function Cart() {
 								<AlertMessage
 									color={"info"}
 									message={"Your Cart is Empty"}
-									link={`/ecommerce/${id}`}
+									link={`/ecommerce-user/${id}`}
 									linkMessage={"Go Back"}
 								/>
 							</div>

@@ -58,8 +58,8 @@ export default function Templates({ loggedIn }) {
 	if (templates.length === 0) {
 		return (
 			<div className="text-center mt-5">
-				<h1 className="mb-2">Templates</h1>
-				<h3>No Templates Found</h3>
+				<h1 className="my-5">Templates</h1>
+				<p>No Templates Found</p>
 			</div>
 		);
 	}

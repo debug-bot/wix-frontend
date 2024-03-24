@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProductList from "../../../components/ecommerce/ProductList";
+import ProductList from "../../../components/ecommerce/UserProductList";
 import { userListProducts } from "../../../actions/productActions";
 import AlertMessage from "../../../components/ecommerce/Alert";
 import Loader from "../../../components/ecommerce/Loader";
 import { useRouter } from "next/router";
-import Header from "../../../components/ecommerce/Header";
+import Header from "../../../components/ecommerce/UserHeader";
 import AuthContext from "../../../context/AuthContext";
 import Hero from "../../../components/ecommerce/UserHero";
 import Footer from "../../../components/ecommerce/UserFooter";

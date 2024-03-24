@@ -14,7 +14,7 @@ import Loader from "../../../components/ecommerce/Loader";
 import CheckoutSteps from "../../../components/ecommerce/CheckoutSteps";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Header from "../../../components/ecommerce/Header";
+import Header from "../../../components/ecommerce/UserHeader";
 import Hero from "../../../components/ecommerce/UserHero";
 import Footer from "../../../components/ecommerce/UserFooter";
 
@@ -46,7 +46,7 @@ function Shipping() {
 			})
 		);
 
-		router.push(`/ecommerce/${id}/checkout`);
+		router.push(`/ecommerce-user/${id}/checkout`);
 	};
 
 	return (
@@ -248,7 +248,7 @@ function Shipping() {
 													className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
 												>
 													<Link
-														href={`/ecommerce/product-details/${product.slug}`}
+														href={`/ecommerce-user/product-details/${product.slug}`}
 													>
 														<Avatar
 															img={product.image}
